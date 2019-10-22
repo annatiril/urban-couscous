@@ -1,0 +1,27 @@
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEditorState } from 'vev';
+
+export default function({ text }: Props) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [count, setCount] = useState<number>(0);
+  const { disabled } = useEditorState();
+
+  useEffect(() => {
+    
+  }, [audioRef.current])
+
+  return (
+    <div>
+      <figure>
+          <audio
+              controls
+              ref={audioRef}>
+              <source src="https://storage.cloud.google.com/vevtracks/Diabolic%20Clockwork.aac" type="audio/aac">
+              </source>
+                  Your browser does not support the
+                  <code>audio</code> element.
+          </audio>
+      </figure>
+    </div>
+  );
+}
